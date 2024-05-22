@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web-calculator</title>
+    <style>
+        * {
+            padding: 0 0 0 0;
+            margin: 0 0 0 0;
+            font-family: Oswald, "Times New Roman", serif;
+        }
+
+
+        header div {
+            text-align: center;
+            height: 5vh;
+            background: black;
+            color: white;
+            justify-content: center;
+            box-shadow: grey 0 1px 5px;
+            margin: 0 0 0 0;
+            padding: 0 0 0 0;
+        }
+
+        form {
+            justify-content: center;
+
+        }
+
+        form input, label {
+            display: block;
+            margin: 0 auto;
+            border-radius: 5px;
+            text-align: center;
+
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div><span>Web-calculator</span></div>
+</header>
+<main>
+    <br>
+    <h2 style="text-align: center; position: absolute;  display: block; background: white;  left: 50%;
+  transform: translate(-50%, -50%); ">Розрахунок електричних навантажень</h2>
+
+    <hr style="width:50vw; border-radius: 15px; background: black; height: 3px; justify-self: center; margin: auto">
+    <br>
+    <form>
+        <table>
+            <tr>
+                <th></th>
+                <th>Номінальне значення ККД)</th>
+                <th>Коефіцієнт потужності навантаження</th>
+                <th>Напруга навантаження</th>
+                <th>Кількість ЕП</th>
+                <th>Номінальна потужність ЕП</th>
+                <th>Коефіцієнт використання</th>
+                <th>Коефіцієнт реактивної потужності</th>
+            </tr>
+            <tr>
+                <td>Шліфувальний верстат(1-4)</td>
+                <td><input type="number" id="nn1"></td>
+                <td><input type="number" id="cos1"></td>
+                <td><input type="number" id="Un1"></td>
+                <td><input type="number" id="n1"></td>
+                <td><input type="number" id="Pn1"></td>
+                <td><input type="number" id="kv1"></td>
+                <td><input type="number" id="tg1"></td>
+            </tr>
+            <tr>
+                <td>Свердлильний верстат(5-6)</td>
+                <td><input type="number" id="nn2"></td>
+                <td><input type="number" id="cos2"></td>
+                <td><input type="number" id="Un2"></td>
+                <td><input type="number" id="n2"></td>
+                <td><input type="number" id="Pn2"></td>
+                <td><input type="number" id="kv2"></td>
+                <td><input type="number" id="tg2"></td>
+            </tr>
+            <tr>
+                <td>Фугувальний верстат(9-12)</td>
+                <td><input type="number" id="nn3"></td>
+                <td><input type="number" id="cos3"></td>
+                <td><input type="number" id="Un3"></td>
+                <td><input type="number" id="n3"></td>
+                <td><input type="number" id="Pn3"></td>
+                <td><input type="number" id="kv3"></td>
+                <td><input type="number" id="tg3"></td>
+            </tr>
+            <tr>
+                <td>Циркулярна пила(13)</td>
+                <td><input type="number" id="nn4"></td>
+                <td><input type="number" id="cos4"></td>
+                <td><input type="number" id="Un4"></td>
+                <td><input type="number" id="n4"></td>
+                <td><input type="number" id="Pn4"></td>
+                <td><input type="number" id="kv4"></td>
+                <td><input type="number" id="tg4"></td>
+            </tr>
+            <tr>
+                <td>Прес(16)</td>
+                <td><input type="number" id="nn5"></td>
+                <td><input type="number" id="cos5"></td>
+                <td><input type="number" id="Un5"></td>
+                <td><input type="number" id="n5"></td>
+                <td><input type="number" id="Pn5"></td>
+                <td><input type="number" id="kv5"></td>
+                <td><input type="number" id="tg5"></td>
+            </tr>
+            <tr>
+                <td>Полірувальний верстат(24)</td>
+                <td><input type="number" id="nn6"></td>
+                <td><input type="number" id="cos6"></td>
+                <td><input type="number" id="Un6"></td>
+                <td><input type="number" id="n6"></td>
+                <td><input type="number" id="Pn6"></td>
+                <td><input type="number" id="kv6"></td>
+                <td><input type="number" id="tg6"></td>
+            </tr>
+            <tr>
+                <td>Фрезерний верстат(26-27)</td>
+                <td><input type="number" id="nn7"></td>
+                <td><input type="number" id="cos7"></td>
+                <td><input type="number" id="Un7"></td>
+                <td><input type="number" id="n7"></td>
+                <td><input type="number" id="Pn7"></td>
+                <td><input type="number" id="kv7"></td>
+                <td><input type="number" id="tg7"></td>
+            </tr>
+            <tr>
+                <td>Вентилятор(36)</td>
+                <td><input type="number" id="nn8"></td>
+                <td><input type="number" id="cos8"></td>
+                <td><input type="number" id="Un8"></td>
+                <td><input type="number" id="n8"></td>
+                <td><input type="number" id="Pn8"></td>
+                <td><input type="number" id="kv8"></td>
+                <td><input type="number" id="tg8"></td>
+            </tr>
+            <tr>
+                <td>Зварювальний трансформатор</td>
+                <td><input type="number" id="nn11"></td>
+                <td><input type="number" id="cos11"></td>
+                <td><input type="number" id="Un11"></td>
+                <td><input type="number" id="n11"></td>
+                <td><input type="number" id="Pn11"></td>
+                <td><input type="number" id="kv11"></td>
+                <td><input type="number" id="tg11"></td>
+            </tr>
+            <tr>
+                <td>Сушильна шафа</td>
+                <td><input type="number" id="nn12"></td>
+                <td><input type="number" id="cos12"></td>
+                <td><input type="number" id="Un12"></td>
+                <td><input type="number" id="n12"></td>
+                <td><input type="number" id="Pn12"></td>
+                <td><input type="number" id="kv12"></td>
+            </tr>
+        </table>
+        <br>
+        <input type="button" value="Вирахувати" onclick="task()"/>
+    </form>
+    <div class="container">
+        <h2 class="mb-4">Результат</h2>
+        <table>
+            <tr>
+                <th></th>
+                <th>Номінальне значення ККД</th>
+                <th>Коефіцієнт потужності навантаження</th>
+                <th>Напруга навантаження</th>
+                <th>Кількість ЕП</th>
+                <th>Номінальна потужність ЕП</th>
+                <th>n * P<sub>н</sub></th>
+                <th>Коефіцієнт використання</th>
+                <th>Коефіцієнт реактивної потужності</th>
+                <th>n * P<sub>н</sub> * K<sub>B</sub></th>
+                <th>n * P<sub>н</sub> * K<sub>B</sub> * tg</th>
+                <th>n * P<sub>н</sub><sup>2</sup></th>
+                <th>Ефективна кількість ЕП</th>
+                <th>Розрахунковий коефіцієнт активної потужності (K<sub>p</sub>)</th>
+                <th>Розрахункове активне навантаження (P<sub>p</sub>)</th>
+                <th>Розрахункове реактивне навантаження (Q<sub>p</sub>)</th>
+                <th>Повна потужність (S<sub>p</sub>)</th>
+                <th>Розрахунковий груповий струм (I<sub>p</sub>)</th>
+            </tr>
+            <tr>
+                <td>Шліфувальний верстат</td>
+                <td id="nn1r"></td>
+                <td id="cos1r"></td>
+                <td id="Un1r"></td>
+                <td id="n1r"></td>
+                <td id="Pn1r"></td>
+                <td id="n*p1"></td>
+                <td id="kv1r"></td>
+                <td id="tg1r"></td>
+                <td id="n*p*k1"></td>
+                <td id="n*p*k*tg1"></td>
+                <td id="n*p*p1"></td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td id="ir1"></td>
+            </tr>
+            <tr>
+                <td>Свердлильний верстат</td>
+                <td id="nn2r"></td>
+                <td id="cos2r"></td>
+                <td id="Un2r"></td>
+                <td id="n2r"></td>
+                <td id="Pn2r"></td>
+                <td id="n*p2"></td>
+                <td id="kv2r"></td>
+                <td id="tg2r"></td>
+                <td id="n*p*k2"></td>
+                <td id="n*p*k*tg2"></td>
+                <td id="n*p*p2"></td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td id="ir2"></td>
+            </tr>
+            <tr>
+                <td>Фугувальний верстат</td>
+                <td id="nn3r"></td>
+                <td id="cos3r"></td>
+                <td id="Un3r"></td>
+                <td id="n3r"></td>
+                <td id="Pn3r"></td>
+                <td id="n*p3"></td>
+                <td id="kv3r"></td>
+                <td id="tg3r"></td>
+                <td id="n*p*k3"></td>
+                <td id="n*p*k*tg3"></td>
+                <td id="n*p*p3"></td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td id="ir3"></td>
+            </tr>
+            <tr>
+                <td>Циркулярна пила</td>
+                <td id="nn4r"></td>
+                <td id="cos4r"></td>
+                <td id="Un4r"></td>
+                <td id="n4r"></td>
+                <td id="Pn4r"></td>
+                <td id="n*p4"></td>
+                <td id="kv4r"></td>
+                <td id="tg4r"></td>
+                <td id="n*p*k4"></td>
+                <td id="n*p*k*tg4"></td>
+                <td id="n*p*p4"></td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td id="ir4"></td>
+            </tr>
+            <tr>
+                <td>Прес</td>
+                <td id="nn5r"></td>
+                <td id="cos5r"></td>
+                <td id="Un5r"></td>
+                <td id="n5r"></td>
+                <td id="Pn5r"></td>
+                <td id="n*p5"></td>
+                <td id="kv5r"></td>
+                <td id="tg5r"></td>
+                <td id="n*p*k5"></td>
+                <td id="n*p*k*tg5"></td>
+                <td id="n*p*p5"></td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td id="ir5"></td>
+            </tr>
+            <tr>
+                <td>Полірувальний верстат</td>
+                <td id="nn6r"></td>
+                <td id="cos6r"></td>
+                <td id="Un6r"></td>
+                <td id="n6r"></td>
+                <td id="Pn6r"></td>
+                <td id="n*p6"></td>
+                <td id="kv6r"></td>
+                <td id="tg6r"></td>
+                <td id="n*p*k6"></td>
+                <td id="n*p*k*tg6"></td>
+                <td id="n*p*p6"></td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td id="ir6"></td>
+            </tr>
+            <tr>
+                <td>Фрезерний верстат</td>
+                <td id="nn7r"></td>
+                <td id="cos7r"></td>
+                <td id="Un7r"></td>
+                <td id="n7r"></td>
+                <td id="Pn7r"></td>
+                <td id="n*p7"></td>
+                <td id="kv7r"></td>
+                <td id="tg7r"></td>
+                <td id="n*p*k7"></td>
+                <td id="n*p*k*tg7"></td>
+                <td id="n*p*p7"></td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td id="ir7"></td>
+            </tr>
+            <tr>
+                <td>Вентилятор</td>
+                <td id="nn8r"></td>
+                <td id="cos8r"></td>
+                <td id="Un8r"></td>
+                <td id="n8r"></td>
+                <td id="Pn8r"></td>
+                <td id="n*p8"></td>
+                <td id="kv8r"></td>
+                <td id="tg8r"></td>
+                <td id="n*p*k8"></td>
+                <td id="n*p*k*tg8"></td>
+                <td id="n*p*p8"></td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td id="ir8"></td>
+            </tr>
+            <tr>
+                <td>ВСЬОГО ШP1</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td id="sumN"></td>
+                <td>-</td>
+                <td id="sumN*p"></td>
+                <td id="Kv"></td>
+                <td>-</td>
+                <td id="sumN*p*k"></td>
+                <td id="sumN*p*k*tg"></td>
+                <td id="sumN*p*p"></td>
+                <td id="ne"></td>
+                <td id="kr"></td>
+                <td id="rp"></td>
+                <td id="qr">reactive_loading</td>
+                <td id="sp">full_loading</td>
+                <td id="ir"></td>
+            </tr>
+            <tr>
+                <td>Зварювальний трансформатор</td>
+                <td id="nn11r"></td>
+                <td id="cos11r"></td>
+                <td id="Un11r"></td>
+                <td id="n11r"></td>
+                <td id="Pn11r"></td>
+                <td id="n*p11"></td>
+                <td id="kv11r"></td>
+                <td id="tg11r"></td>
+                <td id="n*p*k11"></td>
+                <td id="n*p*k*tg11"></td>
+                <td id="n*p*p11"></td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td id="ir11"></td>
+            </tr>
+            <tr>
+                <td>Сушильна шафа</td>
+                <td id="nn12r"></td>
+                <td id="cos12r"></td>
+                <td id="Un12r"></td>
+                <td id="n12r"></td>
+                <td id="Pn12r"></td>
+                <td id="n*p12"></td>
+                <td id="kv12r"></td>
+                <td>-</td>
+                <td id="n*p*k12"></td>
+                <td>-</td>
+                <td id="n*p*p12"></td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td id="ir12"></td>
+            </tr>
+            <tr>
+                <td>Всього, навантаження цеху</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td id="sumN2"></td>
+                <td>-</td>
+                <td id="sumN*p2"></td>
+                <td id="Kv22"></td>
+                <td>-</td>
+                <td id="sumN*p*k2"></td>
+                <td id="sumN*p*k*tg2"></td>
+                <td id="sumN*p*p2"></td>
+                <td id="ne2"></td>
+                <td id="kr2"></td>
+                <td id="rp2"></td>
+                <td id="qr2"></td>
+                <td id="sp2"></td>
+                <td id="ir22"></td>
+            </tr>
+        </table>
+        <br>
+    </div>
+    <script>
+        function task() {
+
+            let sumPn = 0;
+            let sumN = 0.0;
+            let sumTg = 0;
+            let sumNMultiPn = 0;
+            let sumNMultiPnMultiKv = 0;
+            let sumNMultiPnMultiKvMultiTg = 0;
+            let sumNMultiPnx2 = 0;
+
+            for (let i = 1; i < 9; i++) {
+                const nn = document.getElementById("nn" + i).value;
+                const cos = document.getElementById("cos" + i).value;
+                const n = document.getElementById("n" + i).value;
+                const Pn = document.getElementById("Pn" + i).value;
+                const kv = document.getElementById("kv" + i).value;
+                const tg = document.getElementById("tg" + i).value;
+                const Un = document.getElementById("Un" + i).value;
+
+
+                const nMultiPn = n * Pn;
+                const Ip = (nMultiPn) / ((3 ** 0.5) * Un * cos * nn);
+
+                sumN += parseInt(n);
+                sumTg += tg;
+                sumPn += Pn;
+                sumNMultiPn += nMultiPn;
+                sumNMultiPnMultiKv += nMultiPn * kv;
+                sumNMultiPnMultiKvMultiTg += nMultiPn * kv * tg;
+                sumNMultiPnx2 += nMultiPn * Pn;
+
+                document.getElementById("nn" + i + "r").innerHTML = nn;
+                document.getElementById("cos" + i + "r").innerHTML = cos;
+                document.getElementById("n" + i + "r").innerHTML = n;
+                document.getElementById("Pn" + i + "r").innerHTML = Pn;
+                document.getElementById("kv" + i + "r").innerHTML = kv;
+                document.getElementById("tg" + i + "r").innerHTML = tg;
+                document.getElementById("n*p" + i).innerHTML = nMultiPn.toFixed(2);
+                document.getElementById("n*p*k" + i).innerHTML = (nMultiPn * kv).toFixed(2);
+                document.getElementById("n*p*k*tg" + i).innerHTML = (nMultiPn * kv * tg).toFixed(2);
+                document.getElementById("n*p*p" + i).innerHTML = (nMultiPn * Pn).toFixed(2);
+                document.getElementById("Un" + i + "r").innerHTML = Un;
+                document.getElementById("ir" + i).innerHTML = Ip.toFixed(2);
+
+            }
+
+            const Kv = sumNMultiPnMultiKv / sumNMultiPn;
+            const ne = (sumNMultiPn ** 2) / (sumNMultiPnx2);
+            const Kr = 1.25;
+            const Rp = Kr * sumNMultiPnMultiKv;
+            const Qp = sumNMultiPnMultiKvMultiTg;
+            const Sp = (Rp ** 2 + Qp ** 2) ** 0.5;
+            const Ipg = Rp / document.getElementById("Un1").value;
+
+            document.getElementById("Kv").innerHTML = Kv.toFixed(2);
+            document.getElementById("ne").innerHTML = ne.toFixed(2);
+            document.getElementById("kr").innerHTML = Kr.toFixed(2);
+            document.getElementById("rp").innerHTML = Rp.toFixed(2);
+            document.getElementById("qr").innerHTML = Qp.toFixed(2);
+            document.getElementById("sp").innerHTML = Sp.toFixed(2);
+
+            document.getElementById("ir").innerHTML = Ipg.toFixed(2);
+            document.getElementById("sumN").innerHTML = sumN.toString();
+            document.getElementById("sumN*p").innerHTML = sumNMultiPn.toString();
+            document.getElementById("sumN*p*k").innerHTML = sumNMultiPnMultiKv.toFixed(2);
+            document.getElementById("sumN*p*k*tg").innerHTML = sumNMultiPnMultiKvMultiTg.toFixed(2);
+            document.getElementById("sumN*p*p").innerHTML = sumNMultiPnx2.toFixed(2);
+
+
+
+            let PnMultiKvMultiTg2;
+
+            sumN *=3;
+            sumNMultiPn *=3;
+            sumNMultiPnMultiKv *=3;
+            sumNMultiPnMultiKvMultiTg *=3;
+            sumNMultiPnx2 *=3;
+
+            for (let i = 1; i < 3; i++) {
+                let nn = document.getElementById("nn1" + i).value;
+                let cos = document.getElementById("cos1" + i).value;
+                let n = document.getElementById("n1" + i).value;
+                let Pn = document.getElementById("Pn1" + i).value;
+                let kv = document.getElementById("kv1" + i).value;
+                const Un = document.getElementById("Un1" + i).value;
+
+
+                const nMultiPn = n * Pn;
+                const Ip = (nMultiPn) / ((3 ** 0.5) * Un * cos * nn);
+
+
+                sumN += parseInt(n);
+                sumNMultiPn += nMultiPn;
+                sumNMultiPnMultiKv += nMultiPn * kv;
+                sumNMultiPnx2 += nMultiPn * Pn;
+
+                document.getElementById("nn1" + i + "r").innerHTML = nn;
+                document.getElementById("cos1" + i + "r").innerHTML = cos;
+                document.getElementById("n1" + i + "r").innerHTML = n;
+                document.getElementById("Pn1" + i + "r").innerHTML = Pn;
+                document.getElementById("kv1" + i + "r").innerHTML = kv;
+                document.getElementById("n*p1" + i).innerHTML = nMultiPn.toFixed(2);
+                document.getElementById("n*p*k1" + i).innerHTML = (nMultiPn * kv).toFixed(2);
+                document.getElementById("n*p*p1" + i).innerHTML = (nMultiPn * kv).toFixed(2);
+                document.getElementById("ir1" + i).innerHTML = Ip.toFixed(2);
+                document.getElementById("Un1" + i + "r").innerHTML = Un;
+
+            }
+            document.getElementById("tg11r").innerHTML = document.getElementById("tg11").value;
+
+            PnMultiKvMultiTg2 = document.getElementById("n11").value * document.getElementById("Pn11").value * document.getElementById("kv11").value * document.getElementById("tg11").value;
+            sumNMultiPnMultiKvMultiTg+=PnMultiKvMultiTg2
+
+            document.getElementById("n*p*k*tg11").innerHTML = PnMultiKvMultiTg2.toFixed(2);
+            const Kv2 = sumNMultiPnMultiKv / sumNMultiPn;
+            const ne2 = (sumNMultiPn ** 2) / (sumNMultiPnx2);
+            const Kr2 = 0.7;
+            const Rp2 = Kr2 * sumNMultiPnMultiKv;
+            const Qp2 = sumNMultiPnMultiKvMultiTg;
+            const Sp2 = (Rp2 ** 2 + Qp2 ** 2) ** 0.5;
+            const Ipg2 = Rp2 / (document.getElementById("Un1").value);
+
+            document.getElementById("Kv22").innerHTML = Kv2.toFixed(2);
+            document.getElementById("ne2").innerHTML = ne2.toFixed(2);
+            document.getElementById("kr2").innerHTML = Kr2.toFixed(2);
+            document.getElementById("rp2").innerHTML = Rp2.toFixed(2);
+            document.getElementById("qr2").innerHTML = Qp2.toFixed(2);
+            document.getElementById("sp2").innerHTML = Sp2.toFixed(2);
+
+            document.getElementById("ir22").innerHTML = Ipg2.toFixed(2);
+            document.getElementById("sumN2").innerHTML = sumN.toString();
+            document.getElementById("sumN*p2").innerHTML = sumNMultiPn.toString();
+            document.getElementById("sumN*p*k2").innerHTML = sumNMultiPnMultiKv.toFixed(2);
+            document.getElementById("sumN*p*k*tg2").innerHTML = sumNMultiPnMultiKvMultiTg.toFixed(2);
+            document.getElementById("sumN*p*p2").innerHTML = sumNMultiPnx2.toFixed(2);
+
+
+        }
+    </script>
+</main>
+</body>
+</html>
